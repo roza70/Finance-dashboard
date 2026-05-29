@@ -164,7 +164,8 @@ export function DataTable<TData, TValue>({
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next
+            
+        {/* what? */}
         </Button>
       </div>
     </div>
