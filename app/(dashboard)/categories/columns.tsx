@@ -4,7 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
+import { useOpenCategory } from "@/features/categories/hooks/use-open-category";
 
 export type ResponseType = {
   id: string;
@@ -12,7 +12,7 @@ export type ResponseType = {
 };
 
 const ActionsCell = ({ id }: { id: string }) => {
-  const { onOpen } = useOpenAccount();
+  const { onOpen } = useOpenCategory();
   return (
     <Button variant="ghost" onClick={() => onOpen(id)}>
       Edit

@@ -9,6 +9,7 @@ type Props = {
   isActive?: boolean;
 };
 
+
 export const NavButton = ({ href, label, isActive }: Props) => {
   return (
     <Button

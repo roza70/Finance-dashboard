@@ -1,6 +1,9 @@
 import { ClerkProvider } from '@clerk/nextjs'
 import { QueryProvider } from "@/providers/query-provider";
 import { NewAccountSheet } from "@/features/accounts/components/new-account-sheet";
+import { EditAccountSheet } from "@/features/accounts/components/edit-account-sheet";
+import { NewCategorySheet } from "@/features/categories/components/new-category-sheet";
+import { EditCategorySheet } from "@/features/categories/components/edit-category-sheet";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -20,15 +23,18 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <QueryProvider>
-        <html lang="en" className={inter.className}>
-          <body className="h-full">
+      <html lang="en" className={inter.className}>
+        <body className="h-full">
+          <QueryProvider>
             <NewAccountSheet />
+            <EditAccountSheet />
+            <NewCategorySheet />
+            <EditCategorySheet />
             <Toaster />
             {children}
-          </body>
-        </html>
-      </QueryProvider>
+          </QueryProvider>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
