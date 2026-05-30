@@ -242,5 +242,25 @@ const app = new Hono()
       return c.json({ data: data[0] });
     }
   );
+  .post(
+    "/bulk-create",
+    clerkMiddleware({
+      publishableKey: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+      secretKey: process.env.CLERK_SECRET_KEY,
+    }),
+    zValidator("json", z.array(insertTransactionSchema.omit({ id: true }))),
+    async (c) => {
+      const auth = getAuth(c);
+      if (!auth?.userId) {
+        return c.json({ error: "Unauthorized" }, 401);
+      }
+      const values = c.req.valid("json");
+      const data = await db
+        .insert(transactions)
+        .values(values.map((value) => ({ id: createId(), ...value })))
+        .returning();
+      return c.json({ data });
+    }
+  )
 
 export default app;
