@@ -5,8 +5,12 @@ import { EditAccountSheet } from "@/features/accounts/components/edit-account-sh
 import { NewCategorySheet } from "@/features/categories/components/new-category-sheet";
 import { EditCategorySheet } from "@/features/categories/components/edit-category-sheet";
 import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { NewTransactionSheet } from "@/features/transactions/components/new-transaction-sheet";
+
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,12 +30,16 @@ export default function RootLayout({
       <html lang="en" className={inter.className}>
         <body className="h-full">
           <QueryProvider>
-            <NewAccountSheet />
-            <EditAccountSheet />
-            <NewCategorySheet />
-            <EditCategorySheet />
-            <Toaster />
-            {children}
+            <TooltipProvider>
+              <NewAccountSheet />
+              <EditAccountSheet />
+              <NewCategorySheet />
+              <EditCategorySheet />
+              <NewTransactionSheet />
+            
+              <Toaster />
+              {children}
+            </TooltipProvider>
           </QueryProvider>
         </body>
       </html>
