@@ -3,32 +3,23 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
-export const useEditTransaction = (id?: string) => {
+export const useDeleteTransaction = (id?: string) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: async (values: {
-      date: Date;
-      accountId: string;
-      categoryId?: string | null;
-      payee: string;
-      amount: number;
-      notes?: string | null;
-    }) => {
+    mutationFn: async () => {
       const response = await fetch(`/api/transactions/${id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        method: "DELETE",
       });
-      if (!response.ok) throw new Error("Failed to edit transaction");
+      if (!response.ok) throw new Error("Failed to delete transaction");
       return response.json();
     },
     onSuccess: () => {
-      toast.success("Transaction updated");
+      toast.success("Transaction deleted");
       queryClient.invalidateQueries({ queryKey: ["transaction", { id }] });
       queryClient.invalidateQueries({ queryKey: ["transactions"] });
     },
     onError: () => {
-      toast.error("Failed to edit transaction");
+      toast.error("Failed to delete transaction");
     },
   });
   return mutation;
