@@ -1,8 +1,17 @@
 "use client";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
-import { FileSearch } from "lucide-react";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Legend,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { formatPercentage } from "@/lib/utils";
+import { CategoryTooltip } from "@/components/category-tooltip";
+
+const COLORS = ["#0062FF", "#12C6FF", "#FF647F", "#FF9354"];
 
 type Props = {
   data?: {
@@ -13,30 +22,64 @@ type Props = {
 
 export const PieVariant = ({ data = [] }: Props) => {
   return (
-    <Card className="border-none drop-shadow-sm">
-      <CardContent className="flex items-center justify-center h-[350px]">
-        {data.length === 0 ? (
-          <div className="flex flex-col gap-y-4 items-center justify-center">
-            <FileSearch className="size-6 text-muted-foreground" />
-            <p className="text-muted-foreground text-sm">No data for this period</p>
-          </div>
-        ) : (
-          <p>Pie chart coming soon</p>
-        )}
-      </CardContent>
-    </Card>
+    <ResponsiveContainer width="100%" height={350}>
+      <PieChart>
+        <Legend
+          layout="horizontal"
+          verticalAlign="bottom"
+          align="right"
+          iconType="circle"
+          content={({ payload }: any) => (
+            <ul className="flex flex-col space-y-2">
+              {payload.map((entry: any, index: number) => (
+                <li key={`item-${index}`} className="flex items-center space-x-2">
+                  <span
+                    className="size-2 rounded-full"
+                    style={{ backgroundColor: entry.color }}
+                  />
+                  <div className="space-x-1">
+                    <span className="text-sm text-muted-foreground">
+                      {entry.value}
+                    </span>
+                    <span className="text-sm">
+                      {entry.payload.percent
+                        ? formatPercentage(entry.payload.percent * 100)
+                        : "100%"}
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+        />
+        <Tooltip content={<CategoryTooltip />} />
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          outerRadius={90}
+          innerRadius={60}
+          paddingAngle={2}
+          fill="#000000"
+          dataKey="value"
+          labelLine={false}
+        >
+          {data.map((_entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={COLORS[index % COLORS.length]}
+            />
+          ))}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
   );
 };
 
 export const PieVariantLoading = () => {
   return (
-    <Card className="border-none drop-shadow-sm">
-      <CardHeader>
-        <Skeleton className="h-8 w-48" />
-      </CardHeader>
-      <CardContent>
-        <Skeleton className="h-[350px] w-full" />
-      </CardContent>
-    </Card>
+    <div className="flex items-center justify-center h-[350px] w-full">
+      <p className="text-muted-foreground text-sm">Loading...</p>
+    </div>
   );
 };

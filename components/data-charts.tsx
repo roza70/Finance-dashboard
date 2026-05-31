@@ -2,7 +2,7 @@
 
 import { useGetSummary } from "@/features/summary/api/use-get-summary";
 import { Chart, ChartLoading } from "@/components/chart";
-import { PieVariant, PieVariantLoading } from "@/components/pie-variant";
+import { SpendingPie, SpendingPieLoading } from "@/components/spending-pie";
 
 export const DataCharts = () => {
   const { data, isLoading } = useGetSummary();
@@ -14,7 +14,7 @@ export const DataCharts = () => {
           <ChartLoading />
         </div>
         <div className="col-span-1 lg:col-span-3 xl:col-span-2">
-          <PieVariantLoading />
+          <SpendingPieLoading />
         </div>
       </div>
     );
@@ -26,7 +26,7 @@ export const DataCharts = () => {
         <Chart data={data?.days} />
       </div>
       <div className="col-span-1 lg:col-span-3 xl:col-span-2">
-        <PieVariant data={data?.categories} />
+        <SpendingPie data={data?.categories} />
       </div>
     </div>
   );
