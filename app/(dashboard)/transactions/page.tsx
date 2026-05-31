@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -14,6 +15,7 @@ import { useNewTransaction } from "@/features/transactions/hooks/use-new-transac
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transactions";
 import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions";
+import { useSelectAccount } from "@/features/accounts/hooks/use-select-account";
 import { Skeleton } from "@/components/ui/skeleton";
 import { columns } from "./columns";
 import { UploadButton } from "./upload-button";
@@ -34,6 +36,8 @@ const TransactionsPage = () => {
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
 
+  const [AccountDialog, confirm] = useSelectAccount();
+
   const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
     setImportResults(results);
     setVariant(VARIANTS.IMPORT);
@@ -53,7 +57,18 @@ const TransactionsPage = () => {
   const isDisabled = transactionsQuery.isLoading || deleteTransactions.isPending;
 
   const onSubmitImport = async (values: any[]) => {
-    createTransactions.mutate(values, {
+    const accountId = await confirm();
+
+    if (!accountId) {
+      return toast.error("Please select an account to continue");
+    }
+
+    const data = values.map((value) => ({
+      ...value,
+      accountId,
+    }));
+
+    createTransactions.mutate(data, {
       onSuccess: () => {
         onCancelImport();
       },
@@ -63,6 +78,7 @@ const TransactionsPage = () => {
   if (variant === VARIANTS.IMPORT) {
     return (
       <>
+        <AccountDialog />
         <ImportCard
           data={importResults.data}
           onCancel={onCancelImport}
