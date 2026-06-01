@@ -53,7 +53,7 @@ export const AccountFilter = () => {
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="all">All accounts</SelectItem>
-        {accounts?.data?.map((account) => (
+        {accounts?.data?.map((account: { id: string; name: string }) => (
           <SelectItem key={account.id} value={account.id}>
             {account.name}
           </SelectItem>
