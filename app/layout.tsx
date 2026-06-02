@@ -18,8 +18,8 @@ import { EditTransactionSheet } from "@/features/transactions/components/edit-tr
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Finance Dashboard",
-  description: "Manage your money smartly",
+  title: "BudgetIQ",
+  description: "Track your spending, grow your wealth",
 };
 
 export default function RootLayout({
