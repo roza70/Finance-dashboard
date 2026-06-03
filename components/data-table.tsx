@@ -50,26 +50,27 @@ export function DataTable<TData, TValue>({
   const [rowSelection, setRowSelection] = useState({});
 
   const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-       initialState: {
-       pagination: {
-       pageSize:2,
-     },
+  data,
+  columns,
+  getCoreRowModel: getCoreRowModel(),
+  getPaginationRowModel: getPaginationRowModel(),
+  getSortedRowModel: getSortedRowModel(),
+  getFilteredRowModel: getFilteredRowModel(),
+  onSortingChange: setSorting,
+  onColumnFiltersChange: setColumnFilters,
+  onRowSelectionChange: setRowSelection,
+  initialState: {
+    pagination: {
+      pageSize: 5,
     },
-    onSortingChange: setSorting,
-    onColumnFiltersChange: setColumnFilters,
-    onRowSelectionChange: setRowSelection,
-    state: {
-      sorting,
-      columnFilters,
-      rowSelection,
-    },
-  });
+  },
+  state: {
+    sorting,
+    columnFilters,
+    rowSelection,
+  },
+});
+ 
 
   return (
     <div>

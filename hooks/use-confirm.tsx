@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,7 +12,7 @@ import {
 export const useConfirm = (
   title: string,
   message: string
-): [() => JSX.Element, () => Promise<unknown>] => {
+): [() => React.JSX.Element, () => Promise<unknown>] => {
   const [promise, setPromise] = useState<{
     resolve: (value: boolean) => void;
   } | null>(null);
@@ -45,9 +45,7 @@ export const useConfirm = (
           <Button onClick={handleCancel} variant="outline">
             Cancel
           </Button>
-          <Button onClick={handleConfirm}>
-            Confirm
-          </Button>
+          <Button onClick={handleConfirm}>Confirm</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

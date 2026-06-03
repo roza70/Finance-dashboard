@@ -73,7 +73,6 @@ export const DateFilter = () => {
       <PopoverContent className="lg:w-auto w-full p-0" align="start">
         <Calendar
           disabled={isLoadingSummary}
-          initialFocus
           mode="range"
           defaultMonth={date?.from}
           selected={date}
@@ -94,8 +93,7 @@ export const DateFilter = () => {
           <PopoverClose asChild>
             <Button
               onClick={() => pushToUrl(date)}
-              className="w-full"
-            >
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">
               Apply
             </Button>
           </PopoverClose>

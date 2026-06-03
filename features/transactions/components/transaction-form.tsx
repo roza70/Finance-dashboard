@@ -86,7 +86,7 @@ export const TransactionForm = ({
             <FormItem>
               <FormControl>
                 <DatePicker
-                  value={field.value}
+                  value={field.value ? new Date(field.value as unknown as Date) : undefined}
                   onChange={field.onChange}
                   disabled={disabled}
                 />
