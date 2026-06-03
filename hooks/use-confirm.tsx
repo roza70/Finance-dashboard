@@ -8,6 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+// A custom hook to show a confirmation dialog and return a promise that resolves to true or false based on user action
 
 export const useConfirm = (
   title: string,
