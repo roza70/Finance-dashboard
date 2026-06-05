@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { Plus, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,7 @@ import { useGetCategories } from "@/features/categories/api/use-get-categories";
 import { useBulkDeleteCategories } from "@/features/categories/api/use-bulk-delete-categories";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const CategoriesPage = () => {
+const CategoriesContent = () => {
   const newCategory = useNewCategory();
   const categoriesQuery = useGetCategories();
   const deleteCategories = useBulkDeleteCategories();
@@ -66,6 +67,14 @@ const CategoriesPage = () => {
         </CardContent>
       </Card>
     </div>
+  );
+};
+
+const CategoriesPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CategoriesContent />
+    </Suspense>
   );
 };
 

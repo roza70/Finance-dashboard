@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { Plus, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,7 @@ import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const AccountsPage = () => {
+const AccountsContent = () => {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
   const deleteAccounts = useBulkDeleteAccounts();
@@ -66,6 +67,14 @@ const AccountsPage = () => {
         </CardContent>
       </Card>
     </div>
+  );
+};
+
+const AccountsPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AccountsContent />
+    </Suspense>
   );
 };
 
