@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs";
 import { Loader2 } from "lucide-react";
 import { HeaderLogo } from "@/components/header-logo";
@@ -24,7 +25,9 @@ export const Header = () => {
           </div>
         </div>
         <WelcomeMsg />
-        <Filters />
+        <Suspense fallback={null}>
+          <Filters />
+        </Suspense>
       </div>
     </header>
   );

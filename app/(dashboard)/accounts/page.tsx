@@ -1,6 +1,5 @@
 "use client";
 
-import { Suspense } from "react";
 import { Plus, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +15,7 @@ import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const AccountsContent = () => {
+export default function AccountsPage() {
   const newAccount = useNewAccount();
   const accountsQuery = useGetAccounts();
   const deleteAccounts = useBulkDeleteAccounts();
@@ -24,6 +23,7 @@ const AccountsContent = () => {
   const accounts = accountsQuery.data?.data ?? [];
   const isDisabled = accountsQuery.isLoading || deleteAccounts.isPending;
 
+  // Loading UI
   if (accountsQuery.isLoading) {
     return (
       <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
@@ -48,11 +48,13 @@ const AccountsContent = () => {
           <CardTitle className="text-xl line-clamp-1">
             Accounts page
           </CardTitle>
+
           <Button size="sm" onClick={newAccount.onOpen}>
             <Plus className="size-4 mr-2" />
             Add new
           </Button>
         </CardHeader>
+
         <CardContent>
           <DataTable
             columns={columns}
@@ -68,14 +70,4 @@ const AccountsContent = () => {
       </Card>
     </div>
   );
-};
-
-const AccountsPage = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <AccountsContent />
-    </Suspense>
-  );
-};
-
-export default AccountsPage;
+}

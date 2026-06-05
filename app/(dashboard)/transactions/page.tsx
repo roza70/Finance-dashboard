@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useState } from "react";
 import { Plus, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -32,7 +33,7 @@ const INITIAL_IMPORT_RESULTS = {
   meta: {},
 };
 
-const TransactionsPage = () => {
+const TransactionsContent = () => {
   const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
 
@@ -138,6 +139,14 @@ const TransactionsPage = () => {
         </CardContent>
       </Card>
     </div>
+  );
+};
+
+const TransactionsPage = () => {
+  return (
+    <Suspense>
+      <TransactionsContent />
+    </Suspense>
   );
 };
 
