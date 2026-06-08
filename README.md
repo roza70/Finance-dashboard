@@ -78,50 +78,7 @@
 - PostgreSQL database (Neon recommended)
 - Clerk account
 
-### Installation
 
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/finance-dashboard.git
-cd finance-dashboard
-```
-
-2. **Install dependencies**
-
-```bash
-bun install
-```
-
-3. **Set up environment variables**
-
-```bash
-cp .env.example .env.local
-```
-
-Add your credentials to `.env.local`:
-
-```env
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-CLERK_SECRET_KEY=your_clerk_secret_key
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-DATABASE_URL=your_neon_database_url
-```
-
-4. **Push database schema**
-
-```bash
-bunx drizzle-kit push
-```
-
-5. **Run the development server**
-
-```bash
-bun run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
@@ -188,7 +145,7 @@ Real-time financial summary with:
 
 ## 👨‍💻 Author
 
-**Tahsin**
+**Tahsin Roza**
 
 - GitHub: [@roza70](https://github.com/roza70)
 - Project: [BudgetIQ Finance Dashboard](https://finance-dashboard-gamma-dun.vercel.app)
