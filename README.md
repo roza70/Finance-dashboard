@@ -7,9 +7,20 @@
 ---
 
 ## 📸 Screenshots
-C:\projects\finance-dashboard\Screenshots\Accounts.png
+<img width="1828" height="817" alt="image" src="https://github.com/user-attachments/assets/7e030f14-4802-4923-86ba-bfaa364f6292" />
 
-C:\projects\finance-dashboard\Screenshots\Dashboard.png
+<img width="1904" height="804" alt="image" src="https://github.com/user-attachments/assets/fd9658c8-9244-4a46-a89f-68b3203dcb3d" />
+
+
+<img width="1894" height="804" alt="image" src="https://github.com/user-attachments/assets/96f36b24-4166-48b0-b8cc-94a74ea72c3a" />
+<img width="1886" height="799" alt="image" src="https://github.com/user-attachments/assets/d96cec46-1d1e-42ad-b31c-fd22fa3ba557" />
+<img width="1880" height="794" alt="image" src="https://github.com/user-attachments/assets/7b1836a7-7aad-413f-9b24-04a589364347" />
+<img width="1880" height="794" alt="image" src="https://github.com/user-attachments/assets/ada5fa99-e517-41a8-a09c-47a502a137de" />
+
+
+
+
+
 
 
 ---
