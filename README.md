@@ -7,18 +7,10 @@
 ---
 
 ## 📸 Screenshots
+C:\projects\finance-dashboard\Screenshots\Accounts.png
 
+C:\projects\finance-dashboard\Screenshots\Dashboard.png
 
-| Dashboard                                     |                                                                            Transactions                                  |
-| --------------------------------------- |                                                                                  --------------------------------------------- |
-| ![Dashboard](<img width="1280" height="721" alt="image" 
-  src="https://github.com/user-attachments/assets/bbd34eb1-4777-4ffb-8c89-2e40569f21f4" />                                   <img width="1280" height="720"                                                                                                                        alt="Transaction" src="https://github.com/user-                                                                                                                             attachments/assets/f19f4287-ca92-41eb-917a-9a64c9c89a01" />
-
-
-
-| Accounts                              | Categories                                |
-| ------------------------------------- | ----------------------------------------- |
-| ![Accounts](screenshots/accounts.png) | ![Categories](screenshots/categories.png) |
 
 ---
 
