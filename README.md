@@ -14,6 +14,9 @@
 
 
 2.Overview 
+.
+.
+.
 
 
 <img width="1904" height="804" alt="image" src="https://github.com/user-attachments/assets/fd9658c8-9244-4a46-a89f-68b3203dcb3d" />
@@ -22,6 +25,9 @@
 
 
 3.Transactions
+.
+.
+.
 
 
 
@@ -32,7 +38,9 @@
 
 
 4.Transactions History
-
+.
+.
+.
 
 
 
@@ -41,7 +49,9 @@
 
 
 5.Catagories
-
+.
+.
+.
 
 
 
@@ -50,6 +60,9 @@
 
 
 6.Account Page
+.
+.
+.
 
 
 
