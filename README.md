@@ -14,6 +14,8 @@
 
 
 2.Overview 
+
+
 <img width="1904" height="804" alt="image" src="https://github.com/user-attachments/assets/fd9658c8-9244-4a46-a89f-68b3203dcb3d" />
 
 
@@ -26,16 +28,23 @@
 
 
 4.Transactions History
+
+
 <img width="1886" height="799" alt="image" src="https://github.com/user-attachments/assets/d96cec46-1d1e-42ad-b31c-fd22fa3ba557" />
 
 
 
 5.Catagories
+
+
+
 <img width="1880" height="794" alt="image" src="https://github.com/user-attachments/assets/7b1836a7-7aad-413f-9b24-04a589364347" />
 
 
 
 6.Account Page
+
+
 <img width="1856" height="811" alt="image" src="https://github.com/user-attachments/assets/6434ea30-79ef-4be6-a6cf-411f406c0675" />
 
 
